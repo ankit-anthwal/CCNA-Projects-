@@ -8,3 +8,7 @@ The network was structured to ensure departmental segmentation, secure remote ma
 
 # Network topology & Requirements 
 The architecture was built to support eight distinct departments across three floors, utilizing VLANs for traffic isolation and OSPF for dynamic routing.
+
+# Documentation & Files
+- / :Contains the visual network diagram (Cisco Packet Tracer file) and Technical Implementation
+- / :Includes configuration snippets for Routers,Switches and VLANs.
