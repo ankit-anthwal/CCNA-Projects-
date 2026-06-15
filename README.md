@@ -1,3 +1,10 @@
 # MY CCNA PROJECTS
 Hotel Mangement System
 <img width="960" height="511" alt="Hotel Network" src="https://github.com/user-attachments/assets/35a3831e-69ad-4599-90cc-1479b707f182" />
+
+# Overview
+This Project involved designing and implementing a robust, scalable netwoek infrastructure for the three-story "Vic Modern Hotel." 
+The network was structured to ensure departmental segmentation, secure remote management, and efficient inter-departmental communication.
+
+# Network topology & Requirements 
+The architecture was built to support eight distinct departments across three floors, utilizing VLANs for traffic isolation and OSPF for dynamic routing.
