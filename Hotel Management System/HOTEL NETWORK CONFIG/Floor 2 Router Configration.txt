@@ -1,0 +1,137 @@
+F2-router>en 
+F2-router#config
+Configuring from terminal, memory, or network [terminal]? 
+Enter configuration commands, one per line.  End with CNTL/Z.
+F2-router(config)#
+F2-router(config)#
+F2-router(config)#do sh run
+Building configuration...
+
+Current configuration : 1722 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname F2-router
+!
+!
+!
+!
+!
+ip dhcp pool 30
+ network 192.168.3.0 255.255.255.0
+ default-router 192.168.3.1
+ dns-server 192.168.3.1
+ip dhcp pool 40
+ network 192.168.4.0 255.255.255.0
+ default-router 192.168.4.1
+ dns-server 192.168.4.1
+ip dhcp pool 50
+ network 192.168.5.0 255.255.255.0
+ default-router 192.168.5.1
+ dns-server 192.168.5.1
+ domain-name wr
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username f2router password 0 f2
+!
+!
+license udi pid CISCO2901/K9 sn FTX15240M52-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name f2router
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0.30
+ encapsulation dot1Q 30
+ ip address 192.168.3.1 255.255.255.0
+!
+interface GigabitEthernet0/0.40
+ encapsulation dot1Q 40
+ ip address 192.168.4.1 255.255.255.0
+!
+interface GigabitEthernet0/0.50
+ encapsulation dot1Q 50
+ ip address 192.168.5.1 255.255.255.0
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ ip address 10.10.10.9 255.255.255.252
+ clock rate 64000
+!
+interface Serial0/0/1
+ ip address 10.10.10.2 255.255.255.252
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ network 10.10.10.0 0.0.0.3 area 0
+ network 10.10.10.8 0.0.0.3 area 0
+ network 192.168.3.0 0.0.0.255 area 0
+ network 192.168.4.0 0.0.0.255 area 0
+ network 192.168.5.0 0.0.0.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+!
+end
+
+
+F2-router(config)#
